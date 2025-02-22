@@ -3,70 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine? ❤️</title>
+    <title>For My Princess</title>
     <style>
         body {
             text-align: center;
-            background-color: pink;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            background-color: #ffccff;
         }
-        h1 {
-            color: red;
-            font-size: 36px;
-            margin-top: 100px;
+        .hidden {
+            display: none;
         }
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            color: red;
-            animation: float 4s linear infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(100vh); opacity: 1; }
-            100% { transform: translateY(-10vh); opacity: 0; }
-        }
-        .btn {
-            font-size: 20px;
-            padding: 10px 20px;
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 15px 30px;
             border: none;
+            border-radius: 10px;
+            font-size: 18px;
             cursor: pointer;
-            margin: 20px;
+            margin: 10px;
         }
-        .yes { background-color: red; color: white; }
-        .no { background-color: gray; color: white; }
     </style>
 </head>
 <body>
-    <h1>Will you be my Valentine? 💖</h1>
-    <button class="btn yes" onclick="showLove()">Yes! 💕</button>
-    <button class="btn no" onclick="changeNoButton()">No... 😢</button>
+    <div id="main">
+        <h1>Press here, my lovely princess</h1>
+        <button class="button" onclick="goToPage2()">Press here</button>
+    </div>
+
+    <div id="page2" class="hidden">
+        <h1>Welcome, My Princess!</h1>
+        <p>🎉🎊🎈</p>
+        <button class="button" onclick="sadPopup()">If you are sad, press here</button>
+        <button class="button" onclick="goToFinalPage()">I am not sad</button>
+    </div>
+
+    <div id="finalPage" class="hidden">
+        <h1>My Love Letter to You</h1>
+        <p>"اميرتي حبووووبتييييييي كله ولا هالدنوع يا عسلي انت ، بكتب مش عم بقلك عساس اني بدرس و انت بتدرسي هاهاي ، خرا عالكل و خرا على كل شي بهالدنيا ، والله ما في اي اشي بهالدنيا با قلبي بيستاهل هالدموع تتزل ، الاشي الوحيد الي مسموحلك تدمعي عليه هو دموع فرح غير هيك ممنوع ، بعشق روحك يا قلبي و انا موجودلك بكل شي اميرتي حبوبتي نفسي احكيلك حكي بس خوالي هون بقدرش اتغزل كثييييير ، بحبك يا قلبي و طول ما انا معك كل اشي بهون يا عسلي ، اي اشي مذايقك ارمي علي ، فش اشي يا روحي بستاهل انك تبكي عليه انت اميرتي و دلوعتي و حبوبتي و حياتي كلها و ما بسمح لاي اشي بهالدنيا يذايقك ، الله يخليلي اياكي و يبسطك و يفرحك و طول ما انا معك يا بيبي فش اشي تفكري فيه ، ارمي تفكيرك كله علي حبك مثير يا اغلى ما عندي انت بطريقه لا تووووووصف ، اشي طبيعي يا قلبي تكوني عيك فحأه تتذايقي بس فش اشي ما بينحل ، دراسه؟ بساعدك و بسوي عنك كل اشي ، اي اشي بالحياه؟ والله بحمل عكتافي كل همومك و كل الاشياء الي عم بتذايقك ، ما بسمح لاي اشي بهالدنيا و لولا حدا بهالدنيا انه يخلي دمعتك تنزل اميرتي حبوووبتيييي ، زوجك بحبك و بموت بروحك و مزمنك ادماااااان ، و تبشري اميرتي حبيبتي احلى شاورما لعيونك قبل رمضان تبشري ، شو ما بدها اميرتي انا بيصير ، يماااااا شو بحبها ماي بيرفكت برنسس"</p>
+    </div>
 
     <script>
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-            document.body.appendChild(heart);
-
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-
-            setTimeout(() => {
-                heart.remove();
-            }, 4000);
-        }
-        setInterval(createHeart, 300);
-
-        function showLove() {
-            document.body.innerHTML = "<h1>Yay! I love you my lovely baby princess i love you everyday and each day of the year no matter what from your lover , husband , best frind hamoodek heheheheeh i am obssesed with you habobati! 💘</h1>";
+        function goToPage2() {
+            document.getElementById('main').style.display = 'none';
+            document.getElementById('page2').style.display = 'block';
         }
 
-        function changeNoButton() {
-            let noButton = document.querySelector(".no");
-            noButton.style.position = "absolute";
-            noButton.style.left = Math.random() * 80 + "vw";
-            noButton.style.top = Math.random() * 80 + "vh";
+        function sadPopup() {
+            alert("My princess will never be sad");
+        }
+
+        function goToFinalPage() {
+            document.getElementById('page2').style.display = 'none';
+            document.getElementById('finalPage').style.display = 'block';
         }
     </script>
 </body>
